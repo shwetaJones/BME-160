@@ -1,0 +1,8 @@
+class Announcer (str): # Announcer is now defined as a kind of python string.
+    """The class takes in a string and outputs a print statements"""
+    def printMe (self):
+        """The printMe function takes in a self which is a string, and outputs a print statement"""
+        print (self)
+
+student = Announcer ("Hello Name") #sends string to the class 
+student.printMe() #allows for the string to be printed
