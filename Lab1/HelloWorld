@@ -1,1 +1,5 @@
+"""
+Print out the string Hello World when run.
+"""
+# remember that strings in python use either single (') or double (") quotes.
 print ("Hello World")
