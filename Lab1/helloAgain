@@ -1,0 +1,16 @@
+class Person:
+    """Inputs: name and pet from main Output: the variables are stored under self and also prints a statement"""
+    def __init__(self,name,pet): #initializes the variables
+        """Input: name and pet from the main Output: these variables are stored under self"""
+        self.myName = name
+        self.myPet  = pet   
+    def introduce (self): #uses the initialized variables to print out the sentence 
+        """Input: the self which inclues name and pet Output: Prints out the variables in a statement"""
+        print ("Hi there, I am {0}, and I like {1}s".format(self.myName,self.myPet))
+
+def main ():
+    """Input: 2 variables, name and pet Output: a statement is printed by running the person class"""
+    name = input( "What is your name? : " ) #stores the input
+    pet = input( "What is your favorite kind of pet? : ") #stores the input
+    newPerson = Person (name, pet) #sends more inputs to the class
+    newPerson.introduce() #runs the introduce definistion
