@@ -1,3 +1,12 @@
+"""
+Sequence cleanup
+In this exercise, you will create a program to “clean up” a sequence of DNA by removing ambiguous bases (denoted by “N”) 
+output from a sequencer. Your task is to create a Python program called seqCleaner thatasks for and collects a sequence 
+of DNA using input() removes the ambiguous parts of the sequence, outputs the “cleaned” sequence, replacing the ambiguous 
+parts with a count in {}’s. 
+For example, if I enter the sequence of DNA “AaNNNNNNGTC” (without quotes), the program will output: AA{6}GTC
+"""
+
 """Read a DNA string from user input and returns a collapsed substring of embedded Ns to: {count}."""
 class DNAstring (str):
     """The class takes in the DNA data and stores it"""
