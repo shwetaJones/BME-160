@@ -1,0 +1,16 @@
+def main ():
+    myReader = FastAreader('testGenome.fa') # make sure to change this to use stdin
+    myNuc = NucParams()
+    for head, seq in myReader.readFasta() :
+        myNuc.addSequence(seq)
+        
+    # sort codons in alpha order, by Amino Acid
+    
+    # calculate relative codon usage for each codon and print
+    for nucI in nucs:
+        ...
+        print ('{:s} : {:s} {:5.1f} ({:6d})'.format(nuc, aa, val*100, thisCodonComp[nuc]))
+
+if __name__ == "__main__":
+    main()
+    
