@@ -1,0 +1,19 @@
+class dnaString (str):
+    """ Input:the string from the program Output:stores it within the class"""
+    #for this code, the length function wasn't necessary since the length code counted spaces which I didn't want
+        
+    def getAT (self):
+        """ Input:the stored string Output:value obtained when the AT is divided by the total number of nucleotides"""
+        num_A = self.count('A') #changed A to 'A'
+        num_T = self.count('T') #changed "T" to 'T', but this is more to maintain the same syntax otherwise this isn't a mistake
+        num_C = self.count('C') 
+        num_G = self.count('G')
+        total = int(num_A) + int(num_T) + int(num_C) + int(num_G) #these three codes were added to count the total number of nucleotides in the dna sequence without including spaces or other characters
+        return ((num_A + num_T)/ total ) #changes .len to .length because dnaString never defined len
+
+dna = input("Enter a dna sequence: ")
+upperDNA = dna.upper() #makes everything uppercase
+coolString = dnaString(upperDNA)
+print ("AT content = {0:0.3f}".format(coolString.getAT()) ) #changed 0.1 to 0.3 to have 3 sigfigs
+
+#There were a total of 7 bugs in the program
