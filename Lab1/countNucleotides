@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# Name: Shweta Jones(shsujone)
+# Group Members: Pranav Muthuraman (pmuthura), Sahasra Shankar (sshanka8)
+
+class Values:
+    def __init__ (self, length, numA, numC, numG, numT): #initializes the variables
+        """ Input:takes in the variables gathered by the main class Output:initilizes the variables under self"""
+        self.length = length
+        self.numA = numA
+        self.numT = numT
+        self.numC = numC
+        self.numG = numG
+    def prints (self): #prints the values into a string
+        """ Input: the self which contains all the variables Output:prints out the statements which includes the number of nucleotides"""
+        print ("Your sequence is {0} nucleotides long with the following breakdown of bases:".format(self.length))
+        print ("number As = {0} number Cs = {1} number Gs = {2} number Ts = {3}".format(self.numA, self.numC, self.numG, self.numT))
+
+def main ():
+    """ Input: the input is the dna sequence entered by the user Output: runs the values class and prints out the number of each nucleotide"""
+    dna = input("Enter a dna sequence: ") #stores the input into a variable
+    length = (len(dna)) #inputs length is determined
+    numA = dna.count('A') #number of A,T,C,G are calculates
+    numC = dna.count('C')
+    numG = dna.count('G')
+    numT = dna.count('T')
+    
+    answer = Values(length, numA, numC, numG, numT) #runs the Values class using following values
+    answer.prints() #allows for the prints to run 
+
+main ()
+
+# The expected input is a string of nucleotides and the expected output is the total number of nucleotides in the sequence and the number of A, T, C, and G within the nucleotide sequence
