@@ -1,0 +1,84 @@
+"""
+In this exercise, you will create a program that uses mappings to convert sequence information between different amino acid representations. 
+This includes the 3-letter codon code (RNA and DNA), the one letter amino acid code and the 3-letter amino acid code. 
+The program will use different dictionaries that represent : codon tables – one for DNA and the other for RNA, and amino acid letter 
+representation converters. Your task is to create a Python program called converter that asks for and collects a single input string 
+using input() parses the string, looks up the information in the appropriate dictionary, and outputs the correct conversion 
+For example:
+  if I enter “ATG” (without quotes), then the program will output:
+    ATG = MET
+  if I enter “UAG” (without quotes), then the program will output:
+    UAG = ---
+  if I enter “E” (without quotes), then the program will output:
+    E = GLU
+  if I enter “Asp” (without quotes), then the program will output:
+    ASP = D
+Hints:
+The program might not get a valid codon. In that case, it should output 'unknown'. You can use the dictionary method 'get' and include 
+a default_value to handle the 'unknown' case. See Model p. 72 for an example.
+To get full credit on this assignment, your program needs to:
+  Run properly (execute and produce the correct output)
+  Contain docstrings and line comments (using #)
+  Include any assumptions or design decisions you made in writing your code
+  Include an overview describing what your program does with expected inputs and outputs as a program level docstring
+"""
+
+short_AA = { #converts long AA to short AA
+            'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
+            'ILE': 'I', 'PRO': 'P', 'THR': 'T', 'PHE': 'F', 'ASN': 'N', 
+            'GLY': 'G', 'HIS': 'H', 'LEU': 'L', 'ARG': 'R', 'TRP': 'W', 
+            'ALA': 'A', 'VAL': 'V', 'GLU': 'E', 'TYR': 'Y', 'MET': 'M'
+            }
+
+long_AA = {value:key for key,value in short_AA.items()} #converts short AA to long AA
+
+RNA_codon_table = { #This converts RNA to AA
+# Second Base
+# U             C             A             G
+#U
+'UUU': 'Phe', 'UCU': 'Ser', 'UAU': 'Tyr', 'UGU': 'Cys',
+'UUC': 'Phe', 'UCC': 'Ser', 'UAC': 'Tyr', 'UGC': 'Cys',
+'UUA': 'Leu', 'UCA': 'Ser', 'UAA': '---', 'UGA': '---',
+'UUG': 'Leu', 'UCG': 'Ser', 'UAG': '---', 'UGG': 'Trp',
+#C 
+'CUU': 'Leu', 'CCU': 'Pro', 'CAU': 'His', 'CGU': 'Arg',
+'CUC': 'Leu', 'CCC': 'Pro', 'CAC': 'His', 'CGC': 'Arg',
+'CUA': 'Leu', 'CCA': 'Pro', 'CAA': 'Gln', 'CGA': 'Arg',
+'CUG': 'Leu', 'CCG': 'Pro', 'CAG': 'Gln', 'CGG': 'Arg',
+#A
+'AUU': 'Ile', 'ACU': 'Thr', 'AAU': 'Asn', 'AGU': 'Ser',
+'AUC': 'Ile', 'ACC': 'Thr', 'AAC': 'Asn', 'AGC': 'Ser',
+'AUA': 'Ile', 'ACA': 'Thr', 'AAA': 'Lys', 'AGA': 'Arg',
+'AUG': 'Met', 'ACG': 'Thr', 'AAG': 'Lys', 'AGG': 'Arg',
+#G
+'GUU': 'Val', 'GCU': 'Ala', 'GAU': 'Asp', 'GGU': 'Gly',
+'GUC': 'Val', 'GCC': 'Ala', 'GAC': 'Asp', 'GGC': 'Gly',
+'GUA': 'Val', 'GCA': 'Ala', 'GAA': 'Glu', 'GGA': 'Gly',
+'GUG': 'Val', 'GCG': 'Ala', 'GAG': 'Glu', 'GGG': 'Gly'
+}
+dnaCodonTable = {key.replace('U','T'):value for key, value in RNA_codon_table.items()} #This dictionary converts DNA to AA
+
+def main():
+    """The main method takes the user's code and finds its corresponding key or values within the given dictionaries, if this answer is not found, unknown is returned"""
+    code = input ("Enter your code:")
+    
+    answerList = []
+    answer = short_AA.get(code, "unknown") #looks within the short_AA dictionary else replaces with unknown, converts longer amino acid to short amino acid
+    answer = answer.upper() #makes the output uppercase
+    answerList.append(answer) #enters the answer into a list
+    answer = long_AA.get(code, "unknown") #looks within the long_AA dictionary else replaces with unknown, converts short amino acid to long amino acid
+    answer = answer.upper() #makes the output uppercase
+    answerList.append(answer) #enters the answer into a list
+    answer = RNA_codon_table.get(code, "unknown") #looks within the RNA_codon_table dictionary else replaces with unknown, converts RNA to amino acid
+    answerList.append(answer) #enters the answer into a list
+    answer = dnaCodonTable.get(code, "unknown") #looks within the DNA _codon_table dictionary else replaces with unknown, converts DNA to amino acid
+    answer = answer.upper() #makes the output uppercase
+    answerList.append(answer) #enters the answer into a list
+    finalList = sorted(answerList) #sorts the list in alphabetical order and thus places the answer before the unknowns, https://kite.com/python/answers/how-to-sort-a-list-alphabetically-in-python
+    revisedStr = " " #makes an empty string
+    revisedStr = revisedStr.join(finalList) #allows for the list to be made into a string, https://www.geeksforgeeks.org/python-program-to-convert-a-list-to-string/
+    revisedStr = revisedStr.replace("UNKNOWN", "unknown") #replaces the UNKNOWN with unknown 
+    final = revisedStr.split()[0]#prints out the first word in the list, https://kite.com/python/answers/how-to-get-the-first-word-in-a-string-in-python
+    print(code + " = " + final) #prints out the code entered and the correpsonding AA, DNA, RNA, or unknown
+
+main()
