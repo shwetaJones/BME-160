@@ -1,0 +1,41 @@
+"""
+Build a Person object and have it introduce itself.
+
+input: a string of arbitrary length, which is used to name the new person object
+output: greeting printed to screen
+"""
+
+class Person:
+    """ Input:Takes the variables form the main Output:Prints out the bio"""
+    def __init__(self, name, username, studentType, major, reason, problem, experience): #initializes all the variables stated in the main
+        """ Input: takes in the variables Output: stores variables under self"""
+        self.myName = name
+        self.myUsername = username
+        self.myStudentType = studentType
+        self.myMajor = major
+        self.myReason = reason
+        self.myProblem = problem
+        self.myExperience = experience
+    def introduce (self): #prints the variables 
+        """ Input:the varibales stored under self Output:Prints out the bio"""
+        print ("My name is {0}".format(self.myName))
+        print ("My username is {0}".format(self.myUsername))
+        print ("I am a {0}".format(self.myStudentType))
+        print ("My major is {0}".format(self.myMajor))
+        print ("{0}".format(self.myReason))
+        print ("{0}".format(self.myProblem))
+        print ("I have prior experience using{0}".format(self.myExperience))
+
+def main (): #makes all the constnat variables
+    """ Input: variables entered by the user Output: stores the variables and runs the class person"""
+    name = 'Shweta Jones'
+    username = 'shsujone'
+    studentType = 'student'
+    major = 'Bioinformatics and Biomolecular Engineering'
+    reason = 'I am taking this class to understand python and how it is involved in research'
+    problem = 'I am interest in targeted gene therapy'
+    experience = 'Java and python, however, I am not as familiar with python'
+    bio = Person (name, username, studentType, major, reason, problem, experience) #sends the variables to the Person class
+    bio.introduce() #runs the program to print the answers 
+
+main ()
