@@ -12,3 +12,5 @@ Lab 4: Files and Modules
 Lab 5: ORF Finding
 
 Lab 6: Find Unique
+
+Final Lab Project
