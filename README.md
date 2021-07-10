@@ -1,5 +1,7 @@
 # BME-160
-Research Programming taught by Professor David Bernick at UCSC. 
+Research Programming 
+University: University of California, Santa Cruz
+Professor:Professor David Bernick 
 
 Lab 1: Introduction to Python
 
