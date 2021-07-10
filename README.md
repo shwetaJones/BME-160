@@ -29,11 +29,13 @@ Lab 4: Files and Modules
 
     "seqeunceAnalysis": Contained 4 different classes that looka at the amino acid composition, nucleotide composition, codon composition, sequence addition, and number of nucleotides. 
     
-    "genomeAnalyzer": Determines which codons are preferred for each of the amino acids and calculating the relative percentage
+    "genomeAnalyzer": Determines which codons are preferred for each of the amino acids and calculating the relative percentage.
     
 
 Lab 5: ORF Finding
 
+    "findORFs": Analyzes a FASTA file in order to find ORFS, or start and end codons, that are longer than 100 nucleotides. 
+
 Lab 6: Find Unique
 
-Final Lab Project
+    "findUnique": contains a python command line that reads a file of fasta sequences from STDIN, finds unqiue subsequences that occur in each tRNA. 
