@@ -3,7 +3,7 @@ Research Programming
 
 University: University of California, Santa Cruz
 
-Professor:Professor David Bernick 
+Professor: David Bernick 
 
 Lab 1: Introduction to Python
 
