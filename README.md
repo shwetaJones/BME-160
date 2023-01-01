@@ -1,9 +1,9 @@
 # BME-160
-Research Programming 
+## Research Programming 
 
-University: University of California, Santa Cruz
+### University: University of California, Santa Cruz
 
-Professor: David Bernick 
+### Professor: David Bernick 
 
 Lab 1: Introduction to Python
 
